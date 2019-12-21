@@ -2,13 +2,40 @@
 
 class CertaintyFactor
 {
+	private $knowledge;
+
+	public function __construct()
+	{
+		$this->knowledge = [];
+	}
+
+	public function setKnowledge($knowledge)
+	{
+		$this->knowledge = [];
+		foreach ($knowledge as $row)
+		{
+			$k = [];
+			foreach ($row->gejala_penyakit as $gp)
+			{
+				$k [$gp->gejala->nama_gejala]= $gp->gejala->belief;
+			}
+			$this->knowledge[$row->nama_penyakit] = $k;
+		}
+	}
+
 	public function calculateDiseaseCertaintyFactor($userCertaintyFactor)
 	{
 		$diseaseCertaintyFactor = [];
-		foreach ($userCertaintyFactor as $cf)
+		foreach ($this->knowledge as $k => $v)
 		{
-			// TODO
+			$cf = $this->calculateCertaintyFactor($userCertaintyFactor, $v);
+			if ($cf <= 0)
+			{
+				continue;
+			}
+			$diseaseCertaintyFactor[$k] = $cf;
 		}
+		arsort($diseaseCertaintyFactor);
 		return $diseaseCertaintyFactor;
 	}
 

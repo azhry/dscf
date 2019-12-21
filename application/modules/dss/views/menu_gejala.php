@@ -14,7 +14,7 @@
 									<th>Nama Gejala</th>
 									<th>Belief</th>
 									<th>Plausibility</th>
-									<th>Action</th>
+									<!-- <th>Action</th> -->
 								</tr>
 							</thead>
 							<tbody>
@@ -24,16 +24,16 @@
 										<td><?= $row->nama_gejala ?></td>
 										<td><?= $row->belief ?></td>
 										<td><?= 1 - $row->belief ?></td>
-										<td>
+										<!-- <td>
 											<div class="btn-group">
 												<a class="btn blue" href="<?= base_url('dss/main/edit-gejala/' . $row->id) ?>">
 													<i class="fa fa-edit"></i> Edit
 												</a>
-											<!-- <a class="btn red" href="#button">
+											<a class="btn red" href="#button">
 												<i class="fa fa-trash"></i> Delete
-											</a> -->
+											</a>
 											</div>
-										</td>
+										</td> -->
 									</tr>
 								<?php endforeach; ?>
 							</tbody>

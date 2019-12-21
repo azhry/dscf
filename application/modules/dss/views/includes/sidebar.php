@@ -6,21 +6,16 @@
     -->
     <div class="sidebar-wrapper">
     	<div class="logo" style="text-align: center;">
-    		<img src="<?= base_url('assets/logo.png') ?>" style="height: 100px;">
-            <!-- <a href="<?= base_url('admin/data') ?>" class="simple-text">
-    			YUNIA RUWANNA SOFITA
-    		</a>
-            <a href="<?= base_url('admin/data') ?>" class="simple-text">
-                09031181621005
-            </a> -->
+    		<!-- <img src="<?= base_url('assets/logo.png') ?>" style="height: 100px;"> -->
     	</div>
     	<ul class="nav">
-    		<!-- <li class="nav-item active">
-    			<a class="nav-link" href="dashboard.html">
+    		<li class="nav-item">
+    			<a class="nav-link" href="<?= base_url('dss/main') ?>">
     				<i class="nc-icon nc-chart-pie-35"></i>
-    				<p>Dashboard</p>
+    				<p>Analisis</p>
     			</a>
     		</li>
+            <!--
     		<li>
     			<a class="nav-link" href="./user.html">
     				<i class="nc-icon nc-circle-09"></i>
@@ -28,17 +23,17 @@
     			</a>
     		</li> -->
     		<li>
-    			<a class="nav-link" href="<?= base_url('admin/data') ?>">
+    			<a class="nav-link" href="<?= base_url('dss/main/gejala') ?>">
     				<i class="nc-icon nc-notes"></i>
-    				<p>Data</p>
+    				<p>Data Gejala</p>
     			</a>
     		</li>
-    		<!-- <li>
-    			<a class="nav-link" href="./typography.html">
+    		<li>
+    			<a class="nav-link" href="<?= base_url('dss/main/penyakit') ?>">
     				<i class="nc-icon nc-paper-2"></i>
-    				<p>Typography</p>
+    				<p>Data Penyakit</p>
     			</a>
-    		</li> -->
+    		</li>
     		<!-- <li>
     			<a class="nav-link" href="<?= base_url('admin/data/report') ?>">
     				<i class="nc-icon nc-atom"></i>
@@ -46,12 +41,6 @@
     			</a>
     		</li> -->
 
-            <li>
-                <a class="nav-link" href="<?= base_url('admin/criteria') ?>">
-                    <i class="fa fa-list"></i>
-                    <p>Criteria List</p>
-                </a>
-            </li>
             <!-- <li>
                 <a class="nav-link" href="<?= base_url('admin/users') ?>">
                     <i class="fa fa-users"></i>

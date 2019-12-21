@@ -19,9 +19,13 @@ class Main extends MY_Controller
 		if ($this->POST('process'))
 		{
 			$this->load->model('Penyakit_m');
+			$knowledge = Penyakit_m::with(['gejala_penyakit', 'gejala_penyakit.gejala'])->get();
+
 			$gejala = [];
 			$userCertaintyFactor = [];
 			$expertCertaintyFactor = [];
+
+			$this->data['cfs'] = [];
 
 			unset($_POST['process']);
 			foreach ($_POST as $key => $value)
@@ -35,6 +39,7 @@ class Main extends MY_Controller
 					$gejala []= $row;
 					$expertCertaintyFactor[$row->nama_gejala] = (float)$row->belief;
 					$cf = $this->POST('gejala_select_' . $id);
+					$this->data['cfs'][$row->nama_gejala] = $cf;
 					if (isset($cf))
 					{
 						$userCertaintyFactor[$row->nama_gejala] = (float)$cf;
@@ -49,8 +54,10 @@ class Main extends MY_Controller
 			$this->load->library('dss/DempsterShafer');
 			$this->load->library('dss/CertaintyFactor');
 
-			$diseaseCertaintyFactor = $this->certaintyfactor->calculateCertaityFactor($userCertaintyFactor, $expertCertaintyFactor);
-			$this->dump($userCertaintyFactor, 1);
+			$this->certaintyfactor->setKnowledge($knowledge);
+			$this->data['result_cf'] = $this->certaintyfactor->calculateDiseaseCertaintyFactor($userCertaintyFactor);
+			$this->data['result_cf_keys'] 	= array_keys($this->data['result_cf']);
+			$this->data['result_cf_values'] = array_values($this->data['result_cf']);
 
 			$this->data['result'] 			= $this->dempstershafer->predict($gejala);
 			$this->data['gejala_terpilih'] 	= $gejala;
@@ -66,6 +73,19 @@ class Main extends MY_Controller
 						$this->data['penyakit'] []= $penyakit;
 					}
 				}
+			}
+
+			$this->data['penyakit_cf'] = [];
+			if (count($this->data['result_cf']) > 0)
+			{
+				foreach ($this->data['result_cf_keys'] as $p)
+				{
+					$penyakit = Penyakit_m::where('nama_penyakit', $p)->first();
+					if (isset($penyakit))
+					{
+						$this->data['penyakit_cf'] []= $penyakit;
+					}
+				}	
 			}
 		}
 

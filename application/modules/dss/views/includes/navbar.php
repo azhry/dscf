@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg " color-on-scroll="500">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="#" style="font-size: 12px; text-align: center; margin-left: 200px;"> SISTEM PENDUKUNG KEPUTUSAN PEMILIHAN PRESENTER MENGGUNAKAN <br>METODE VISE KRITERIJUMSKA OPTIMIZACIJA I KOMPROMISNO RESENJE (VIKOR) <br>(STUDI KASUS: TVRI SUMATERA SELATAN) </a>
+		<a class="navbar-brand" href="#" style="font-size: 12px; text-align: center; margin-left: 200px;"> SISTEM PENDUKUNG KEPUTUSAN PENENTUAN PENYAKIT KULIT MENGGUNAKAN <br>METODE DEMPSTER-SHAFER DAN CERTAINTY FACTOR </a>
 		<!-- <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-bar burger-lines"></span>
 			<span class="navbar-toggler-bar burger-lines"></span>
@@ -42,17 +42,17 @@
 					</a>
 				</li> -->
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<!-- <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<span class="no-icon">Menu</span>
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="<?= base_url('logout') ?>">Log out</a>
+						<a class="dropdown-item" href="<?= base_url('logout') ?>">Log out</a> -->
 						<!-- <a class="dropdown-item" href="#">Another action</a>
 						<a class="dropdown-item" href="#">Something</a>
 						<a class="dropdown-item" href="#">Something else here</a>
 						<div class="divider"></div>
 						<a class="dropdown-item" href="#">Separated link</a> -->
-					</div>
+					<!-- </div> -->
 				</li>
 				<!-- <li class="nav-item">
 					<a class="nav-link" href="#pablo">
